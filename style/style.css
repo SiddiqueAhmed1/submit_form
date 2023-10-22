@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.box{
+    text-align: center;
+}
+.box span{
+    font-size: 1px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: red;
+    margin-bottom: 200px;
+    margin-top: 100px;
+    animation: bounce 1s ;
+}
+
+
+@keyframes bounce {
+    10%, 50%{
+        transform: rotateY(120deg)
+    }70%{
+        transform: rotateY(180deg);
+    }
+
+    100%{
+        transform:rotateY(360deg);
+    }
+    
+}
