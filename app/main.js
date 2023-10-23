@@ -11,11 +11,22 @@ const reset = document.querySelector('.reset');
 // form data taken TODO: 
 userForm.addEventListener('submit', (e) => {
   e.preventDefault();
+   
 
-   const form_data = new FormData(e.target, e.target.files);
+   const form_data = new FormData(e.target);
    const data = Object.fromEntries(form_data);
 
-   if(!data.name.trim() || !data.email.trim() || !data.mobile.trim() || !data.photo){
+   const fileInput = e.target.querySelector('input[type="file"]');
+   
+     
+   // } else {
+   //   const form_data = new FormData(e.target.files);
+   //   const imageUrl = URL.createObjectURL(form_data);
+   //   const data = Object.fromEntries(form_data);
+   
+   
+
+   if(!data.name.trim() || !data.email.trim() || !data.mobile.trim() || !fileInput.files.length){
      msg.innerHTML =  creatAlert('All fields are required');
      
    }else if(!isEmail(data.email)){
@@ -27,8 +38,9 @@ userForm.addEventListener('submit', (e) => {
    } else{
       success.innerHTML = creatAlert('Your data is succesfully submitted', 'success');
       e.target.reset();
-      
+      gallery.innerHTML = '';
    }
+   console.log(data, fileInput.files.length);
 })
 
 // click on reset button TODO:
@@ -36,8 +48,6 @@ userForm.addEventListener('submit', (e) => {
 reset.onclick = () => {
    gallery.innerHTML = '';
 }
-
-
 // onchange event implement FIXME:
    upload.onchange = (e) => {
    // gallery clear before add new gallery photo
@@ -60,8 +70,4 @@ reset.onclick = () => {
    //  create element 
 
    
-      const box = document.createElement('box');
-      const fox = document.createElement('fox');
-      const heading = document.createTextNode('I love js');
-      box.appendChild(fox,heading);
-      console.log(box);
+  
