@@ -7,6 +7,8 @@ This is a brief description of my awesome project.
 - All field is required
 - Empty submit alert
 
+## User_name 
+when anyone fill Name filed with small letters then it will fill with capital letters automatically.
 
 ## Usage
 
